@@ -19,7 +19,7 @@
 3. **The promise is the key.** "Promise me you will always be the best part of me." / "Only if you promise me you will always be the best part of me." False matches never say it right.
 4. **Awesome graphics on a browser budget.** Dark fantasy, fog, wet reflective ground, blue/pink soul glow, soft bloom. Achieved with shaders and post-processing, not heavy assets.
 
-### Story spine (full game)
+### Story spine (full game — expanded chapter-by-chapter in STORY.md)
 - **Prologue (the slice):** Two orbs playing, laughing, flying. The promise. The Forbidden Gateway. The gate falls off its hinges ("Look — meant to be"). The wormhole tears them apart. Two dark gooey worlds. Rebirth choice (boy/girl baby per player).
 - **Acts 1–3 (future):** Reborn lives in real-world-flavored scenarios (a city, a school, a job, a crowd). Each level, players hunt clues and meet NPC "possible soulmates" — most are false. Memory fragments unlock when the couple syncs up in the same place at the same time.
 - **Finale (future):** The real meeting. The promise spoken back correctly. The orbs re-ignite.
