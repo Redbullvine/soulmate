@@ -4,11 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SOULMATE — Find You Again</title>
-<meta name="description" content="A magical social world for souls. Play solo, bond with your soulmate, and glow together.">
+<meta name="description" content="Two souls were split apart beyond the Forbidden Gateway. Only one promise survived. A cinematic quest to find each other again.">
 <meta property="og:title" content="SOULMATE — Find You Again">
 <meta property="og:description" content="Promise me you will always be the best part of me.">
-<meta property="og:image" content="assets/poster.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='12' cy='16' r='9' fill='%234da6ff' opacity='.9'/%3E%3Ccircle cx='21' cy='16' r='9' fill='%23ff66cc' opacity='.75'/%3E%3C/svg%3E">
+<meta property="og:image" content="assets/soulmate-cover-main.png">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/soulmate-app-icon.png">
 <link rel="stylesheet" href="css/soulmate.css">
 </head>
 <body>
@@ -20,9 +23,9 @@
     <a href="#home" data-nav="home">Home</a>
     <a href="#solo" data-nav="solo">Solo</a>
     <a href="#couple" data-nav="couple">Couple</a>
-    <a href="#groups" data-nav="groups">Groups</a>
+    <a href="#groups" data-nav="groups">Circles</a>
     <a href="#world" data-nav="world">World</a>
-    <a href="#privacy" data-nav="privacy">Privacy</a>
+    <a href="#privacy" data-nav="privacy">Cloak</a>
   </div>
   <button id="statusChip" title="Who can see my soul?" aria-label="Visibility status"></button>
 </nav>
@@ -36,48 +39,127 @@
     <div class="hero-content">
       <h1 class="title">S O U L M A T E</h1>
       <p class="tagline">find you again</p>
+      <p class="heroSub">Two souls were split apart beyond the Forbidden Gateway. Only one promise survived.</p>
       <p class="promise">&ldquo;Promise me you will always be the best part of me.&rdquo;</p>
       <div class="hero-actions">
-        <button class="btn btn-primary" id="enterBtn">Enter Soulmate</button>
-        <button class="btn btn-ghost" id="soundBtn">&#9654; Watch with sound</button>
+        <button class="btn btn-primary btn-pulse" id="enterBtn">Enter the Gateway</button>
+        <button class="btn btn-pink" id="createSoulBtn">Create Soul Code</button>
+        <button class="btn btn-ghost btn-tiny" id="soundBtn">&#9654; Watch with sound</button>
       </div>
     </div>
   </div>
 
   <div class="wrap">
-    <h2 class="sectionTitle">Choose your path</h2>
+    <div class="storyPanel">
+      <p>Before the world remembered names, two glowing souls flew through the sky together &mdash;
+      laughing, racing, and promising forever. Then the Forbidden Gateway opened.
+      One soul was pulled through. The other was left behind.
+      Now every realm holds a fragment of what they lost.</p>
+    </div>
+
+    <h2 class="sectionTitle">Choose your quest</h2>
     <div class="cards">
       <a class="card glow-card" href="#solo">
         <div class="card-orb solo-orb"></div>
-        <h3>Solo Journey</h3>
-        <p>Enter alone as a glowing soul. The world will whisper back.</p>
+        <h3>Solo Quest</h3>
+        <p>Search the realms alone. Collect memory shards, unlock echoes, and follow the
+        Soul Compass toward the promise you cannot forget.</p>
+        <span class="cardBtn">Begin Solo Quest</span>
       </a>
       <a class="card glow-card" href="#couple">
         <div class="card-orb pair-orb"><span class="mini b"></span><span class="mini p"></span></div>
-        <h3>Couple Code</h3>
-        <p>Bond with your soulmate using a private Soul Code only you two share.</p>
+        <h3>Couple Quest</h3>
+        <p>Create a Soul Code and enter the story from opposite sides of the same mystery.
+        Each player sees clues the other cannot.</p>
+        <span class="cardBtn">Create Soul Code</span>
       </a>
       <a class="card glow-card" href="#groups">
         <div class="card-orb group-orb"><span class="mini b"></span><span class="mini p"></span><span class="mini g"></span></div>
-        <h3>Groups</h3>
-        <p>Friends, family, work crew — private circles of familiar souls.</p>
+        <h3>Soul Circle</h3>
+        <p>Form a private circle and explore shared realms together. Only invited souls
+        can appear inside your world.</p>
+        <span class="cardBtn">Create Circle</span>
       </a>
       <a class="card glow-card" href="#world">
         <div class="card-orb world-orb"></div>
-        <h3>Public Soul World</h3>
-        <p>A living world of anonymous glows. See the souls, never the people.</p>
+        <h3>World of Echoes</h3>
+        <p>Enter the public demo world and watch distant souls glow across the map.
+        Visibility is always your choice.</p>
+        <span class="cardBtn">View Demo World</span>
       </a>
     </div>
-    <p class="homePrivacyNote">Your soul is <strong>Invisible</strong> by default. Nothing is shared unless you choose it.
-      <a href="#privacy">Who can see my soul?</a></p>
+
+    <h2 class="sectionTitle">Quest log</h2>
+    <div class="questLog">
+      <div class="quest unlocked">
+        <span class="qmark">✦</span>
+        <div><div class="qname">Find the First Memory Shard</div>
+        <div class="qdesc">Something is glowing in the Quiet Woods. It knows your color.</div></div>
+        <span class="badge on">ACTIVE</span>
+      </div>
+      <div class="quest locked">
+        <span class="qmark">🔒</span>
+        <div><div class="qname">Decode the Promise Echo</div>
+        <div class="qdesc">Eight words repeat across the realms. Half of them are yours.</div></div>
+        <span class="badge">LOCKED</span>
+      </div>
+      <div class="quest locked">
+        <span class="qmark">🔒</span>
+        <div><div class="qname">Reach the Forbidden Gateway</div>
+        <div class="qdesc">The gate that fell will not fall twice. Find another way through.</div></div>
+        <span class="badge">LOCKED</span>
+      </div>
+    </div>
+
+    <h2 class="sectionTitle">Soul Compass</h2>
+    <div class="compassWrap">
+      <div class="compass" aria-hidden="true">
+        <div class="cring"></div>
+        <div class="needle"></div>
+        <div class="cdot"></div>
+      </div>
+      <p class="compassSignal">◈ tracking &mdash; <em>Unknown Signal</em></p>
+      <p class="compassCopy">The compass does not point north. It points toward what your soul remembers.</p>
+    </div>
+
+    <h2 class="sectionTitle">Memory Shards</h2>
+    <div class="shards">
+      <div class="shardCard">
+        <div class="shard sBlue"></div>
+        <h4>Laughter</h4>
+        <p>Two lights racing through the clouds. It plays without sound &mdash; and yet you can hear it.</p>
+        <span class="badge on">FOUND</span>
+      </div>
+      <div class="shardCard">
+        <div class="shard sGold"></div>
+        <h4>The Promise</h4>
+        <p>Eight words, spoken twice. The only shard the Veil cannot touch.</p>
+        <span class="badge">SEALED</span>
+      </div>
+      <div class="shardCard">
+        <div class="shard sPink"></div>
+        <h4>The Split</h4>
+        <p>Cold to hold. Something on the other side is still holding it too.</p>
+        <span class="badge">LOST</span>
+      </div>
+    </div>
+
+    <div class="veil">
+      <h2 class="veilTitle">The Veil Is Closing</h2>
+      <p>Every moment beyond the Gateway erases another memory. If the promise fades completely,
+      the two souls may pass each other forever &mdash; and never know.</p>
+    </div>
+
+    <p class="homePrivacyNote">Your soul wears the <strong>Visibility Cloak</strong> by default — Invisible, everywhere.
+      <a href="#privacy">Open the Cloak</a></p>
   </div>
 </section>
 
 <!-- ============ SOLO ============ -->
 <section id="view-solo" class="view">
   <div class="wrap">
-    <h2 class="viewTitle">Solo Journey</h2>
-    <p class="viewSub">You don&rsquo;t need anyone to begin. Some souls search; some souls wander; both glow.</p>
+    <h2 class="viewTitle">Solo Quest</h2>
+    <p class="viewSub">One soul. Endless realms. The compass only works when you move.</p>
     <div id="soloStage" class="stage">
       <div class="soulYou" id="soloSoul"></div>
     </div>
@@ -88,8 +170,8 @@
 <!-- ============ COUPLE ============ -->
 <section id="view-couple" class="view">
   <div class="wrap">
-    <h2 class="viewTitle">Couple Code</h2>
-    <p class="viewSub">One code. Two souls. A private bond no one else can see.</p>
+    <h2 class="viewTitle">Couple Quest</h2>
+    <p class="viewSub">One code. Two souls. Opposite sides of the same mystery.</p>
     <div id="coupleContent"></div>
   </div>
 </section>
@@ -97,8 +179,8 @@
 <!-- ============ GROUPS ============ -->
 <section id="view-groups" class="view">
   <div class="wrap">
-    <h2 class="viewTitle">Groups</h2>
-    <p class="viewSub">Private circles of familiar souls. Share a code, glow together.</p>
+    <h2 class="viewTitle">Soul Circles</h2>
+    <p class="viewSub">Private circles of familiar souls. Only invited souls can appear inside your world.</p>
     <div id="groupsContent"></div>
   </div>
 </section>
@@ -106,8 +188,8 @@
 <!-- ============ WORLD ============ -->
 <section id="view-world" class="view">
   <div class="wrap wide">
-    <h2 class="viewTitle">Public Soul World</h2>
-    <p class="viewSub">A living world of anonymous glows. Positions are symbolic — never real locations.</p>
+    <h2 class="viewTitle">World of Echoes</h2>
+    <p class="viewSub">A living demo world of anonymous glows. Positions are symbolic — never real locations.</p>
     <div id="worldBanner" class="worldBanner"></div>
     <div class="worldFrame">
       <canvas id="worldCanvas"></canvas>
@@ -126,17 +208,17 @@
 <!-- ============ PRIVACY ============ -->
 <section id="view-privacy" class="view">
   <div class="wrap">
-    <h2 class="viewTitle">Who can see my soul?</h2>
-    <p class="viewSub">Everything here is opt-in. Your default is Invisible — and it stays that way until you say otherwise.</p>
+    <h2 class="viewTitle">Visibility Cloak</h2>
+    <p class="viewSub">You control when your soul can be seen. Invisible Mode is always the default.</p>
     <div id="privacyContent"></div>
   </div>
 </section>
 </main>
 
 <footer>
-  <p>All presence in this early version is <strong>simulated</strong>. No real location is collected, stored, or shown.
-  Real location features will arrive later and will always require your permission and mutual opt-in.</p>
-  <p class="fine">SOULMATE — Find You Again &middot; an early glimpse &middot; <a href="#privacy">privacy</a></p>
+  <p>Every glow in this demo is an echo — <strong>no real location is collected or shown</strong>.
+  When real presence crosses the Veil one day, it will require your permission and mutual opt-in. Nothing sees you unless you allow it.</p>
+  <p class="fine">SOULMATE — Find You Again &middot; the search has begun &middot; <a href="#privacy">visibility cloak</a></p>
 </footer>
 
 <div id="toasts" aria-live="polite"></div>

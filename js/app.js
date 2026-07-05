@@ -54,12 +54,12 @@
 
   // ---------------- visibility model ----------------
   const MODES = {
-    invisible: { label: 'Invisible', icon: '🌑', desc: 'No one can see your soul. Anywhere. This is the default.' },
-    soulmate:  { label: 'Only My Soulmate', icon: '💞', desc: 'Only your bonded partner could ever sense your glow.' },
-    groups:    { label: 'Selected Groups', icon: '✨', desc: 'Choose exactly which of your circles can sense you.' },
-    nearby:    { label: 'Nearby Friends', icon: '🌙', desc: 'Friends may feel that a familiar soul is somewhere near. Never where.' },
-    public:    { label: 'Public Glow', icon: '🌟', desc: 'Appear in the Public Soul World as one anonymous glow among many.' },
-    temp:      { label: 'Temporary Live Share', icon: '⏳', desc: 'Share your glow for a limited time, then fade back to Invisible.' },
+    invisible: { label: 'Invisible Mode', icon: '🌑', desc: 'The cloak at full strength. No soul can see you — anywhere. This is the default.' },
+    soulmate:  { label: 'Partner Only', icon: '💞', desc: 'Only the soul bound to your Code could ever sense your glow.' },
+    groups:    { label: 'Circle Only', icon: '✨', desc: 'Choose exactly which of your circles may sense you.' },
+    nearby:    { label: 'Echo Sense', icon: '🌙', desc: 'Familiar souls may feel an echo when you pass near. Never where — only near.' },
+    public:    { label: 'Public Glow', icon: '🌟', desc: 'Appear in the World of Echoes as one anonymous glow among many.' },
+    temp:      { label: 'Timed Glow', icon: '⏳', desc: 'Lower the cloak for a set time. When it ends, the cloak returns on its own.' },
   };
 
   function modeLabel() {
@@ -141,6 +141,7 @@
 
   // ---------------- home ----------------
   document.getElementById('enterBtn').addEventListener('click', () => { location.hash = '#solo'; });
+  document.getElementById('createSoulBtn').addEventListener('click', () => { location.hash = '#couple'; });
   document.getElementById('soundBtn').addEventListener('click', () => {
     const v = document.getElementById('introVideo');
     v.muted = false; v.currentTime = 0; v.play();
@@ -160,28 +161,28 @@
     if (!S.soloStarted) {
       box.innerHTML = `
         <div class="panel">
-          <h3>Begin alone. Glow anyway.</h3>
-          <p class="hint">Your journey starts in the dark, gooey place every soul lands after the Gateway.
-          Placeholder chapters for now — the real story is on its way.</p>
-          <div class="rowActions"><button class="btn btn-primary" id="beginSolo">Begin Solo Journey</button></div>
+          <h3>The realms are waiting.</h3>
+          <p class="hint">Every soul wakes in the dark place beyond the Gateway — no name, no map,
+          one promise it can almost remember. Demo quests for now; the realms open soon.</p>
+          <div class="rowActions"><button class="btn btn-primary btn-pulse" id="beginSolo">Begin Solo Quest</button></div>
         </div>`;
       document.getElementById('beginSolo').addEventListener('click', () => {
         S.soloStarted = true; save(); renderSolo();
-        toast('✦ Your soul begins to wander…');
+        toast('✦ The compass stirs. Your quest begins…');
       });
     } else {
       box.innerHTML = `
         <div class="panel">
-          <h3>Your journey</h3>
+          <h3>Quest log</h3>
           <div class="journeySteps">
             <div class="jstep"><span class="n">✦</span> Prologue — The Forbidden Gateway <span class="s">READY (DEMO)</span></div>
-            <div class="jstep locked"><span class="n">I</span> First Light <span class="s">COMING SOON</span></div>
-            <div class="jstep locked"><span class="n">II</span> The Static <span class="s">COMING SOON</span></div>
-            <div class="jstep locked"><span class="n">III</span> Crossing Paths <span class="s">COMING SOON</span></div>
+            <div class="jstep"><span class="n">✦</span> Find the First Memory Shard <span class="s">ACTIVE</span></div>
+            <div class="jstep locked"><span class="n">🔒</span> Decode the Promise Echo <span class="s">LOCKED</span></div>
+            <div class="jstep locked"><span class="n">🔒</span> Reach the Forbidden Gateway <span class="s">LOCKED</span></div>
           </div>
           <div class="rowActions">
             <button class="btn" id="playPrologue">Relive the Prologue</button>
-            <button class="btn btn-ghost btn-tiny" id="resetSolo">Reset journey</button>
+            <button class="btn btn-ghost btn-tiny" id="resetSolo">Abandon quest</button>
           </div>
         </div>`;
       document.getElementById('playPrologue').addEventListener('click', () => { location.hash = '#home'; });
@@ -314,17 +315,17 @@
 
     box.innerHTML = `
       <div class="panel">
-        <h3>Create a group</h3>
+        <h3>Create a circle</h3>
         <div class="formRow">
-          <input type="text" id="gName" maxlength="28" placeholder="Name it — 'The Campfire', 'Team Glow'…">
+          <input type="text" id="gName" maxlength="28" placeholder="Name it — 'The Campfire', 'The Night Watch'…">
           <select id="gType">${GROUP_TYPES.map(t => `<option>${t}</option>`).join('')}</select>
-          <button class="btn btn-primary" id="gCreate">Create</button>
+          <button class="btn btn-primary" id="gCreate">Create Circle</button>
         </div>
       </div>
       <div class="panel">
-        <h3>Join a group</h3>
+        <h3>Join a circle</h3>
         <div class="formRow">
-          <input type="text" id="gJoin" maxlength="6" placeholder="Group code" autocapitalize="characters">
+          <input type="text" id="gJoin" maxlength="6" placeholder="Circle code" autocapitalize="characters">
           <button class="btn" id="gJoinBtn">Join</button>
         </div>
       </div>
@@ -463,8 +464,8 @@
           <button class="btn btn-tiny" data-report>Report a soul</button>
         </div>
       </div>
-      <div class="safetyNote">✦ Nothing in this early version uses your real location — every glow is simulated.
-      When real location features arrive, they will be off by default and require your permission
+      <div class="safetyNote">✦ No real location is collected or shown in this demo — every glow is an echo.
+      If real presence ever crosses the Veil, it will be off by default and require your permission
       <em>and</em> mutual opt-in from both souls. No exact places. No distances. Ever, without you.</div>`;
 
     box.querySelectorAll('input[name=pmode]').forEach(r => r.addEventListener('change', () => setMode(r.value)));

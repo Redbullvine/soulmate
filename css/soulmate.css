@@ -67,8 +67,8 @@ main { position: relative; z-index: 1; }
 .viewTitle { font-family: var(--serif); font-weight: 400; font-size: 34px; letter-spacing: 2px;
   text-shadow: 0 0 30px rgba(120,140,255,0.35); }
 .viewSub { color: var(--muted); margin: 8px 0 28px; max-width: 60ch; }
-.sectionTitle { font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: 2px;
-  margin: 48px 0 20px; text-align: center; }
+.sectionTitle { font-family: var(--serif); font-weight: 400; font-size: 26px; letter-spacing: 3px;
+  margin: 68px 0 24px; text-align: center; text-shadow: 0 0 24px rgba(120,140,255,0.3); }
 
 /* ---------- hero ---------- */
 .hero { position: relative; height: 92vh; min-height: 480px; overflow: hidden; }
@@ -270,6 +270,116 @@ input[type=text]:focus, select:focus { box-shadow: 0 0 0 2px rgba(90,120,255,0.3
 .quickRow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
 .safetyNote { border: 1px solid rgba(217,192,122,0.3); background: rgba(60,50,20,0.15);
   border-radius: 12px; padding: 14px 18px; font-size: 13px; color: #cfc5a5; margin-top: 22px; }
+
+/* ---------- game sections ---------- */
+.heroSub { color: #aab6da; font-size: clamp(13px, 2.2vw, 16px); max-width: 52ch;
+  margin: 14px auto 0; text-shadow: 0 1px 12px rgba(0,0,0,0.8); }
+.btn-pulse { animation: btnPulse 2.6s ease-in-out infinite; }
+@keyframes btnPulse {
+  0%, 100% { box-shadow: 0 0 24px rgba(90,120,255,0.25); }
+  50% { box-shadow: 0 0 38px rgba(140,120,255,0.55); }
+}
+.storyPanel {
+  border: 1px solid var(--line); border-left: 2px solid rgba(217,192,122,0.5);
+  background: linear-gradient(120deg, rgba(20,20,44,0.7), rgba(10,14,28,0.7));
+  border-radius: 0 16px 16px 0; padding: 22px 26px; margin: 44px 0 10px;
+}
+.storyPanel p { font-family: var(--serif); font-style: italic; color: #c6cfe8;
+  font-size: 15.5px; line-height: 1.85; max-width: 68ch; }
+.cardBtn {
+  display: inline-block; margin-top: 14px; font-size: 12px; letter-spacing: 1.5px;
+  padding: 8px 18px; border-radius: 999px; border: 1px solid var(--line-strong);
+  color: var(--text); transition: all .3s;
+}
+.glow-card:hover .cardBtn { border-color: rgba(140,160,255,0.7);
+  box-shadow: 0 0 18px rgba(120,140,255,0.4); }
+
+.badge { font-size: 10px; letter-spacing: 2px; padding: 3px 12px; border-radius: 999px;
+  border: 1px solid var(--line-strong); color: var(--muted); white-space: nowrap; }
+.badge.on { color: var(--gold); border-color: rgba(217,192,122,0.5);
+  box-shadow: 0 0 14px rgba(217,192,122,0.25); animation: badgePulse 3s ease-in-out infinite; }
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(217,192,122,0.2); }
+  50% { box-shadow: 0 0 20px rgba(217,192,122,0.45); }
+}
+
+.questLog { display: grid; gap: 10px; }
+.quest { display: flex; align-items: center; gap: 16px; padding: 16px 20px;
+  border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
+  transition: all .3s; }
+.quest.unlocked { border-color: rgba(217,192,122,0.35); }
+.quest.unlocked:hover { box-shadow: 0 0 26px rgba(217,192,122,0.18); }
+.quest.locked { opacity: .55; }
+.quest .qmark { font-size: 16px; color: var(--gold); min-width: 24px; text-align: center; }
+.quest .qname { font-family: var(--serif); letter-spacing: 1px; }
+.quest .qdesc { color: var(--muted); font-size: 12.5px; }
+.quest .badge { margin-left: auto; }
+
+.compassWrap { text-align: center; padding: 6px 0 12px; }
+.compass { width: 200px; height: 200px; border-radius: 50%; margin: 0 auto; position: relative;
+  border: 1px solid var(--line-strong);
+  background: radial-gradient(circle at 50% 42%, rgba(24,30,60,0.95), rgba(7,10,20,0.98) 75%);
+  box-shadow: 0 0 44px rgba(90,110,255,0.22), inset 0 0 34px rgba(90,110,255,0.10); }
+.cring { position: absolute; inset: 8px; border-radius: 50%;
+  background: repeating-conic-gradient(rgba(150,168,255,0.4) 0deg 1.2deg, transparent 1.2deg 15deg);
+  -webkit-mask: radial-gradient(closest-side, transparent 84%, #000 86%);
+  mask: radial-gradient(closest-side, transparent 84%, #000 86%);
+  animation: ringSpin 60s linear infinite; }
+@keyframes ringSpin { to { transform: rotate(360deg); } }
+.needle { position: absolute; left: 50%; top: 50%; width: 3px; height: 76px;
+  transform-origin: 50% 100%;
+  background: linear-gradient(180deg, var(--pink), rgba(255,102,204,0.05));
+  filter: drop-shadow(0 0 8px rgba(255,102,204,0.8));
+  animation: seek 9s ease-in-out infinite; }
+@keyframes seek {
+  0%, 100% { transform: translate(-50%, -100%) rotate(24deg); }
+  28% { transform: translate(-50%, -100%) rotate(61deg); }
+  52% { transform: translate(-50%, -100%) rotate(38deg); }
+  74% { transform: translate(-50%, -100%) rotate(79deg); }
+}
+.cdot { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px;
+  transform: translate(-50%, -50%); border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%, #eaf6ff, var(--blue) 65%);
+  box-shadow: 0 0 16px rgba(77,166,255,0.9); }
+.compassSignal { margin-top: 16px; font-size: 12.5px; letter-spacing: 2px; color: var(--gold); }
+.compassSignal em { color: var(--text); font-family: var(--serif); }
+.compassCopy { color: var(--muted); font-size: 13.5px; font-family: var(--serif);
+  font-style: italic; margin-top: 6px; }
+
+.shards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.shardCard { background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+  padding: 24px 20px; text-align: center; transition: all .35s; }
+.shardCard:hover { border-color: var(--line-strong); transform: translateY(-3px);
+  box-shadow: 0 0 34px rgba(100,120,255,0.18); }
+.shardCard h4 { font-family: var(--serif); font-weight: 400; letter-spacing: 2px;
+  margin: 14px 0 6px; font-size: 17px; }
+.shardCard p { color: var(--muted); font-size: 12.5px; font-style: italic;
+  font-family: var(--serif); margin-bottom: 14px; min-height: 3.6em; }
+.shard { width: 54px; height: 66px; margin: 0 auto;
+  clip-path: polygon(50% 0, 100% 30%, 82% 100%, 18% 100%, 0 30%);
+  animation: shardFloat 5s ease-in-out infinite; }
+.shardCard:nth-child(2) .shard { animation-delay: -1.6s; }
+.shardCard:nth-child(3) .shard { animation-delay: -3.2s; }
+@keyframes shardFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+.shard.sBlue { background: linear-gradient(160deg, #bfe2ff, var(--blue) 45%, #103a80);
+  filter: drop-shadow(0 0 16px rgba(77,166,255,0.7)); }
+.shard.sGold { background: linear-gradient(160deg, #fff3d0, var(--gold) 45%, #6b5518);
+  filter: drop-shadow(0 0 16px rgba(217,192,122,0.7)); }
+.shard.sPink { background: linear-gradient(160deg, #ffd7ef, var(--pink) 45%, #7a1a56);
+  filter: drop-shadow(0 0 16px rgba(255,102,204,0.7)); }
+
+.veil { margin: 54px 0 10px; padding: 30px 28px; border-radius: 16px; text-align: center;
+  border: 1px solid rgba(255,90,140,0.28);
+  background: linear-gradient(120deg, rgba(64,12,44,0.35), rgba(22,10,44,0.55));
+  box-shadow: inset 0 0 60px rgba(120,20,70,0.15), 0 0 40px rgba(120,20,70,0.12); }
+.veilTitle { font-family: var(--serif); font-weight: 400; font-size: 26px; letter-spacing: 3px;
+  color: #ffb9d4; animation: veilPulse 4s ease-in-out infinite; margin-bottom: 12px; }
+@keyframes veilPulse {
+  0%, 100% { text-shadow: 0 0 18px rgba(255,102,160,0.4); }
+  50% { text-shadow: 0 0 34px rgba(255,102,160,0.8); }
+}
+.veil p { color: #d4b8c8; font-family: var(--serif); font-style: italic;
+  font-size: 14.5px; max-width: 56ch; margin: 0 auto; }
 
 /* ---------- toasts ---------- */
 #toasts { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
