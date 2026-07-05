@@ -115,7 +115,7 @@
   chip.addEventListener('click', () => { location.hash = '#privacy'; });
 
   // ---------------- router ----------------
-  const VIEWS = ['home', 'solo', 'couple', 'groups', 'world', 'privacy'];
+  const VIEWS = ['home', 'solo', 'couple', 'groups', 'world', 'privacy', 'paths', 'play', 'dream'];
   let current = 'home';
 
   function route() {
@@ -132,6 +132,9 @@
     if (v === 'couple') renderCouple();
     if (v === 'groups') renderGroups();
     if (v === 'privacy') renderPrivacy();
+    if (v === 'paths') LifePaths.renderPaths();
+    if (v === 'play') LifePaths.renderPlay();
+    if (v === 'dream') LifePaths.renderDream();
     if (v === 'world') renderWorld(); else SoulWorld.stop();
 
     const video = document.getElementById('introVideo');

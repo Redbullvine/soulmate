@@ -21,9 +21,9 @@
   <a class="brand" href="#home">SOULMATE</a>
   <div class="navlinks">
     <a href="#home" data-nav="home">Home</a>
-    <a href="#solo" data-nav="solo">Solo</a>
-    <a href="#couple" data-nav="couple">Couple</a>
-    <a href="#groups" data-nav="groups">Circles</a>
+    <a href="#paths" data-nav="paths">Paths</a>
+    <a href="#play" data-nav="play">Play</a>
+    <a href="#dream" data-nav="dream">Dream</a>
     <a href="#world" data-nav="world">World</a>
     <a href="#privacy" data-nav="privacy">Cloak</a>
   </div>
@@ -50,6 +50,14 @@
   </div>
 
   <div class="wrap">
+    <a class="lifeBanner" href="#paths">
+      <span class="lbNew">NEW</span>
+      <span class="lbTitle">SOULMATE: LIFE PATHS</span>
+      <span class="lbLine">Three Lives. One Soul.</span>
+      <span class="lbSub">&ldquo;Some lives are won. Some are wasted. Some are almost found.&rdquo;</span>
+      <span class="cardBtn">Choose Your Path</span>
+    </a>
+
     <div class="storyPanel">
       <p>Before the world remembered names, two glowing souls flew through the sky together &mdash;
       laughing, racing, and promising forever. Then the Forbidden Gateway opened.
@@ -155,6 +163,32 @@
   </div>
 </section>
 
+<!-- ============ LIFE PATHS ============ -->
+<section id="view-paths" class="view">
+  <div class="wrap">
+    <h2 class="viewTitle">Life Paths</h2>
+    <p class="viewSub">&ldquo;Some lives are won. Some are wasted. Some are almost found.&rdquo;
+    Three Lives. One Soul.</p>
+    <div id="pathsContent"></div>
+  </div>
+</section>
+
+<!-- ============ PLAY ============ -->
+<section id="view-play" class="view">
+  <div class="wrap">
+    <div id="playContent"></div>
+  </div>
+</section>
+
+<!-- ============ CREATE DREAM ============ -->
+<section id="view-dream" class="view">
+  <div class="wrap">
+    <h2 class="viewTitle">Create Your Own Dream</h2>
+    <p class="viewSub">Describe a life. The realms will shape a simulation around it. (Demo — built locally, no AI yet.)</p>
+    <div id="dreamContent"></div>
+  </div>
+</section>
+
 <!-- ============ SOLO ============ -->
 <section id="view-solo" class="view">
   <div class="wrap">
@@ -225,6 +259,7 @@
 
 <script src="js/particles.js"></script>
 <script src="js/world.js"></script>
+<script src="js/lifepaths.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
