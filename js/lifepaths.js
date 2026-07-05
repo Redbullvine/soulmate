@@ -518,5 +518,9 @@ window.LifePaths = (function () {
     document.getElementById('dreamInput').addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
   }
 
-  return { renderPaths, renderPlay, renderDream, reset };
+  function hasActiveTimeline() {
+    return G.phase !== 'idle' && !!G.pathId;
+  }
+
+  return { renderPaths, renderPlay, renderDream, reset, hasActiveTimeline };
 })();

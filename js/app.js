@@ -133,7 +133,18 @@
     if (v === 'groups') renderGroups();
     if (v === 'privacy') renderPrivacy();
     if (v === 'paths') LifePaths.renderPaths();
-    if (v === 'play') LifePaths.renderPlay();
+    if (v === 'play') {
+      if (LifePaths.hasActiveTimeline && LifePaths.hasActiveTimeline()) {
+        if (window.SoulRun) SoulRun.stop();
+        LifePaths.renderPlay();
+      } else if (window.SoulRun) {
+        SoulRun.mount(document.getElementById('playContent'));
+      } else {
+        LifePaths.renderPlay();
+      }
+    } else if (window.SoulRun) {
+      SoulRun.stop();
+    }
     if (v === 'dream') LifePaths.renderDream();
     if (v === 'world') renderWorld(); else SoulWorld.stop();
 
